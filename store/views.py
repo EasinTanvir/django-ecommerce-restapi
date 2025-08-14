@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Category, Product
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -33,6 +34,9 @@ class GetAllProducts(APIView):
 
 
 class CreateCategoryView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         serializer = CategorySerializer(data=request.data)
         if serializer.is_valid():
@@ -50,6 +54,8 @@ class CreateCategoryView(APIView):
 
 
 class CreateProductView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():

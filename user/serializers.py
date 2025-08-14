@@ -28,7 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
         UserProfile.objects.create(
             user_id=user,
             age=validated_data.get("age", None),  # set if provided
-            role="U",  # default role
+            role=validated_data.get("role", "U"),  # default role
         )
 
         return user
