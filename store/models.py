@@ -14,7 +14,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     des = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.CharField(max_length=255)
+    image = models.CharField(max_length=255, blank=True, null=True)
 
     # Foreign key: Many products → one category
     category = models.ForeignKey(

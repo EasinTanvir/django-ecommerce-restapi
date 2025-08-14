@@ -12,6 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
         required=True,  # will raise error if category not provided
     )
     category_info = serializers.SerializerMethodField(read_only=True)
+    slug = serializers.SlugField(read_only=True)
 
     class Meta:
         model = Product
@@ -51,6 +52,7 @@ class ProductSerializer(serializers.ModelSerializer):
 # =========================
 class CategorySerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True, read_only=True)
+    slug = serializers.SlugField(read_only=True)
 
     class Meta:
         model = Category
