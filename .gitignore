@@ -29,6 +29,9 @@ static/
 .env.*
 *.env
 
+node_modules
+.env
+.next
 # VS Code settings
 .vscode/
 
