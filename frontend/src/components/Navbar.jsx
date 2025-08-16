@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -16,6 +17,8 @@ import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const cartQty = 10;
 
   return (
     <nav className="bg-brandColor text-white shadow-md">
@@ -36,6 +39,17 @@ export default function Navbar() {
             </Link>
             <Link href="/contact" className="hover:text-gray-200">
               Contact
+            </Link>
+            {/* Cart Icon with Badge */}
+            <Link
+              href="/cart"
+              className="relative flex items-center hover:text-gray-200"
+            >
+              <ShoppingCart className="w-6 h-6" />
+
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {cartQty}
+              </span>
             </Link>
 
             {/* Avatar Dropdown */}
@@ -83,6 +97,17 @@ export default function Navbar() {
           </Link>
           <Link href="/contact" className="block hover:text-gray-200">
             Contact
+          </Link>
+          {/* Cart Icon with Badge */}
+          <Link
+            href="/cart"
+            className="relative flex items-center hover:text-gray-200"
+          >
+            <ShoppingCart className="w-6 h-6" />
+
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              {cartQty}
+            </span>
           </Link>
 
           {/* Avatar Dropdown (mobile version simplified) */}

@@ -40,3 +40,9 @@ export const products = [
     category_info: { name: "Appliances" },
   },
 ];
+export const categories = [
+  { name: "Electronics", slug: "electronics" },
+  { name: "Appliances", slug: "appliances" },
+  { name: "Computers", slug: "computers" },
+  { name: "Furniture", slug: "furniture" },
+];
