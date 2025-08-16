@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: 2,
+    title: "Samsung TV",
+    slug: "samsung-tv",
+    des: "50 inch 4K Smart TV",
+    price: "800.00",
+    image: "/samsung_tv.jpg", // keep inside public folder
+    category: 1,
+    category_info: { name: "Electronics" },
+  },
+  {
+    id: 3,
+    title: "Refrigerator",
+    slug: "refrigerator",
+    des: "Double door fridge",
+    price: "500.00",
+    image: "/fridge.jpg",
+    category: 2,
+    category_info: { name: "Appliances" },
+  },
+  {
+    id: 4,
+    title: "Laptop",
+    slug: "laptop",
+    des: "16GB RAM, 512GB SSD",
+    price: "1200.00",
+    image: "/laptop.jpg",
+    category: 1,
+    category_info: { name: "Computers" },
+  },
+  {
+    id: 5,
+    title: "Microwave",
+    slug: "microwave",
+    des: "Convection Microwave Oven",
+    price: "250.00",
+    image: "/microwave.jpg",
+    category: 2,
+    category_info: { name: "Appliances" },
+  },
+];
