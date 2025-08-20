@@ -16,12 +16,17 @@ export const authConfig = {
           email: credentials.email,
           password: credentials.password,
         };
-        console.log("sendData", sendData);
 
         try {
           const { data } = await api.post("/user/login", sendData);
           console.log("data", data);
-          return data.user;
+          const payload = {
+            username: data.user.username,
+            role: data.user.role,
+            id: data.user.id,
+          };
+          console.log("payload", payload);
+          return payload;
         } catch (err) {
           console.log("err", err.response.data?.message);
           throw new Error(err.response.data?.message || "Invalid Credentials");
@@ -31,9 +36,11 @@ export const authConfig = {
   ],
   callbacks: {
     async jwt({ token, account, user }) {
-      (token.id = user?.id), (token.name = user?.username);
+      if (user) {
+        (token.id = user?.id), (token.name = user?.username);
 
-      token.role = user?.role;
+        token.role = user?.role;
+      }
 
       return token;
     },

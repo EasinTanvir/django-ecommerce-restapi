@@ -2,10 +2,13 @@ import api from "@/api/api";
 import CategoryList from "@/components/pages/Home/CategoryList";
 import ProductList from "@/components/pages/Home/ProductList";
 import { categories, products } from "@/utils/data";
+import getServerCredentials from "@/utils/session";
 import React from "react";
 
 const HomePage = async () => {
-  const { data } = await api.get("/product/all");
+  const session = await getServerCredentials();
+
+  console.log("session", session);
 
   return (
     <div>
