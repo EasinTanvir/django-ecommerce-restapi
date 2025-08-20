@@ -36,17 +36,25 @@ const Registers = () => {
       };
 
       const { data: res } = await api.post("/user/register", sendData);
-      toast.success(res.message);
+      toast.success(res.message || "Regsiter Success");
       reset();
 
       router.push("/login");
     } catch (err) {
       console.log("get err", err);
 
-      if (err.response.data.email) {
-        setError("email", { message: err.response.data.email });
-      } else if (err.response.data.phone) {
-        setError("phone", { message: err.response.data.phone });
+      if (
+        err.response.data.errors?.email &&
+        err.response.data.errors?.email[0]
+      ) {
+        setError("email", { message: err.response.data.errors?.email[0] });
+      } else if (
+        err.response.data.errors?.username &&
+        err.response.data.errors?.username[0]
+      ) {
+        setError("username", {
+          message: err.response.data.errors?.username[0],
+        });
       } else {
         toast.error("User create failed");
       }

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -37,7 +37,7 @@ const Login = () => {
       if (cb?.ok) {
         toast.success("Login Successful");
         setLoader(false);
-        router.push("/me");
+        router.push("/user");
       }
       if (cb?.error) {
         setLoader(false);
